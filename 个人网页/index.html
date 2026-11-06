@@ -1,0 +1,223 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dfff00">
+  <meta name="description" content="Yuehang Yuan — Creative Technologies, Human-Computer Interaction and Human Attention.">
+  <title>Yuehang Yuan — Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main>
+    <!-- HOME -->
+    <section id="home" class="hero section-screen">
+      <div class="hero-photo" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+        <h1>Yuehang<br><span>Yuan.</span></h1>
+
+        <div class="welcome-strip">
+          <span>WELCOME TO MY PORTFOLIO</span>
+          <span class="strip-arrow">↘</span>
+        </div>
+
+        <p class="hero-description">
+          My research interests focus on human-computer interaction (HCI), 
+          particularly VR/AR technologies and interactive systems.
+        </p>
+      </div>
+
+      <div class="morph-stage" aria-hidden="true">
+        <canvas id="morphCanvas"></canvas>
+      </div>
+
+      <a class="scroll-cue"
+         href="#about"
+         aria-label="Scroll down to About me">
+        <span class="arrow-animation" aria-hidden="true">
+          <span class="chevrons">
+            <span class="chevron"></span>
+            <span class="chevron"></span>
+          </span>
+          <span class="spark spark-1"></span>
+          <span class="spark spark-2"></span>
+          <span class="spark spark-3"></span>
+          <span class="spark spark-4"></span>
+        </span>
+      </a>
+
+      <div class="hero-index">
+        01 <span>/</span> 03
+      </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <header class="site-header">
+      <a class="wordmark" href="#home">
+        <span class="mark"></span>
+        YUEHANG YUAN
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#home" data-nav="home">Home page</a>
+        <a href="#about" data-nav="about">About me</a>
+        <a href="#portfolio" data-nav="portfolio">Portfolio</a>
+      </nav>
+
+      <a class="header-cta"
+         href="mailto:YOUR_EMAIL@example.com">
+        Get in touch <span>↗</span>
+      </a>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section section-screen">
+      <div class="section-kicker">
+        <span>02 / ABOUT ME</span>
+        <span>DESIGNER → CREATIVE TECHNOLOGIST → HCI RESEARCHER</span>
+      </div>
+
+      <div class="about-grid">
+  <h2>Yuehang Yuan</h2>
+
+        <div class="about-copy">
+          <p>
+            I am a Creative Technologies graduate from the University of Southampton, 
+            with a background in Product Design and Marketing.
+          </p>
+
+          <p>
+            My interests lie in human-computer interaction (HCI), particularly VR/AR technologies, 
+            interaction design, and immersive experiences.
+          </p>
+
+          <p>
+            I enjoy exploring how emerging technologies can create new possibilities for people to interact with digital environments and the world around them.
+          </p>
+
+          <div class="about-tags">
+            <span>HUMAN–COMPUTER INTERACTION</span>
+            <span>VR/AR</span>
+            <span>Interaction Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-bottom">
+        <span>BA PRODUCT DESIGN · MSc CREATIVE TECHNOLOGIES</span>
+        <a href="#portfolio">
+          EXPLORE SELECTED WORK <span>↘</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio-section">
+      <div class="portfolio-heading">
+        <div>
+          <p class="section-kicker">03 / SELECTED WORK</p>
+        </div>
+
+        <p class="portfolio-hint">
+          HOVER OVER A PROJECT<br>
+          TO TAKE A CLOSER LOOK ↘
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <!-- PROJECT 1: OPEN A SEPARATE HTML PAGE -->
+        <a class="project-card project-one"
+           href="beat-the-clock.html"
+           data-project="racing">
+
+          <div class="project-image image-city"
+               aria-hidden="true"></div>
+
+          <span class="project-number">1</span>
+          <span class="project-tag">VR / ATTENTION</span>
+
+          <div class="project-bottom">
+            <div>
+              <h3>Beat the Clock</h3>
+              <p>Visual attention under time pressure</p>
+            </div>
+            <span class="project-arrow">↗</span>
+          </div>
+        </a>
+
+        <!-- PROJECT 2 -->
+        <a class="project-card project-two" href="masks-across-time.html" data-project="masks">
+          <div class="project-image image-masks" aria-hidden="true"></div>
+          <span class="project-number">2</span>
+          <span class="project-tag">TOUCHDESIGNER</span>
+          <div class="project-bottom"><div>
+            <h3>Masks Across Time</h3>
+            <p>Network interactive artwork</p>
+          </div><span class="project-arrow">↗</span></div>
+        </a>
+
+        <!-- PROJECT 3 -->
+        <a class="project-card project-three" href="understanding-body-diversity.html" data-project="body-diversity">
+          <div class="project-image image-body-diversity" aria-hidden="true"></div>
+          <span class="project-number">3</span><span class="project-tag">MOTION CAPTURE</span>
+          <div class="project-bottom"><div><h3>Understanding<br>Body Diversity</h3><p>Motion Capture</p></div><span class="project-arrow">↗</span></div>
+        </a>
+
+        <!-- PROJECT 4 -->
+        <a class="project-card project-four" href="the-guided.html" data-project="the-guided">
+          <div class="project-image image-the-guided" aria-hidden="true"></div>
+          <span class="project-number">4</span><span class="project-tag">AUGMENTED REALITY</span>
+          <div class="project-bottom"><div><h3>The Guided</h3><p>Autonomy and accessible infrastructure</p></div><span class="project-arrow">↗</span></div>
+        </a>
+
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="site-footer">
+        <span>YUEHANG YUAN © 2026</span>
+        <a href="#home">BACK TO TOP ↑</a>
+      </footer>
+    </section>
+  </main>
+
+  <!-- ORIGINAL PROJECT DETAIL DIALOG: PROJECTS 2–4 -->
+  <dialog id="projectDialog" class="project-dialog">
+    <button class="dialog-close"
+            type="button"
+            aria-label="Close project details">×</button>
+
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <!-- KEEP THE ORIGINAL SITE JAVASCRIPT -->
+  <script src="script.js"></script>
+
+  <!-- PROJECT 1 NAVIGATION FIX -->
+  <script>
+    (() => {
+      "use strict";
+
+      document.addEventListener("click", function(event) {
+        const card = event.target.closest(
+          '.project-card[data-project="racing"], .project-card[data-project="masks"], .project-card[data-project="body-diversity"], .project-card[data-project="the-guided"]'
+        );
+
+        if (!card) return;
+
+        // Stop the old script.js modal handler.
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        // Navigate to the standalone project page.
+        window.location.assign(card.getAttribute("href"));
+      }, true);
+    })();
+  </script>
+
+</body>
+</html>

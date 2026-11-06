@@ -1,0 +1,393 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><title>The Guided — Yuehang Yuan</title><style>
+:root {
+  --bg: #ffffff;
+  --ink: #202b3e;
+  --body: #28364b;
+  --muted: #737985;
+  --line: #e4e6e9;
+  --accent: #dfff00;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--body);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.75;
+}
+
+button { font: inherit; }
+
+.close-project {
+  position: fixed;
+  top: 22px;
+  right: 25px;
+  z-index: 99999;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: #080808;
+  color: var(--accent);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+
+.close-project:hover {
+  transform: rotate(90deg);
+  background: var(--ink);
+}
+
+.topbar {
+  min-height: 64px;
+  padding: 18px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.topbar .accent { color: #637400; }
+
+main {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* PROJECT TITLE */
+.hero { padding: 72px 0 45px; }
+
+.kicker {
+  margin-bottom: 22px;
+  color: #657300;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+h1 {
+  width: 100%;
+  margin: 0;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(44px, 8.2vw, 124px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -.075em;
+  white-space: nowrap;
+}
+
+.intro {
+  max-width: 1000px;
+  margin: 32px 0 0;
+  font-size: clamp(17px, 1.8vw, 22px);
+  line-height: 1.8;
+  color: var(--body);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.meta span {
+  display: inline-block;
+  padding: 6px 17px;
+  border: 1px solid #d5d7db;
+  border-radius: 30px;
+  color: var(--ink);
+  font-size: 11px;
+  letter-spacing: .7px;
+}
+
+/* THREE GAME IMAGES */
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 35px 0 100px;
+}
+
+.screenshots figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.screenshots img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #f1f1f1;
+}
+
+.screenshots figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* CONTENT SECTIONS */
+.section {
+  padding: 70px 0 80px;
+  border-top: 1px solid var(--line);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: minmax(200px, .75fr) 2fr;
+  gap: 35px;
+  margin-bottom: 40px;
+  align-items: start;
+}
+
+.section-number {
+  padding-top: 10px;
+  color: #637300;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(32px, 4.7vw, 65px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -.055em;
+}
+
+.copy {
+  max-width: 1000px;
+  margin-left: auto;
+}
+
+.copy p {
+  margin: 0 0 27px;
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.copy p:last-child { margin-bottom: 0; }
+
+.copy strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+h3 {
+  margin: 42px 0 15px;
+  color: var(--ink);
+  font-size: clamp(21px, 2.5vw, 30px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -.035em;
+}
+
+.copy h3:first-child { margin-top: 0; }
+
+.highlight {
+  background: var(--accent);
+  padding: 1px 4px;
+}
+
+/* RESEARCH QUESTIONS */
+.question {
+  margin: 0 0 16px;
+  padding: 25px 28px;
+  border-left: 3px solid var(--accent);
+  background: #f7f8f4;
+  color: var(--ink);
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.75;
+}
+
+.question:last-child { margin-bottom: 0; }
+
+/* STORYBOARD */
+.storyboard { margin-top: 45px; }
+
+.storyboard figure { margin: 0; }
+
+.storyboard img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #f5f5f5;
+}
+
+.storyboard figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* REFERENCES */
+.reference-list {
+  margin: 0;
+  padding-left: 25px;
+}
+
+.reference-list li {
+  padding-left: 8px;
+  margin-bottom: 22px;
+  color: var(--body);
+  font-size: 14px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.reference-list li:last-child { margin-bottom: 0; }
+
+.reference-list a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: #aab0b9;
+  text-underline-offset: 3px;
+}
+
+.reference-list a:hover {
+  background: var(--accent);
+  text-decoration-color: var(--ink);
+}
+
+/* FOOTER */
+.end {
+  padding: 35px 0 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.end strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .section-heading {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .copy { margin-left: 0; }
+
+  h1 { font-size: clamp(42px, 8vw, 72px); }
+}
+
+@media (max-width: 650px) {
+  .topbar {
+    padding-right: 75px;
+    font-size: 9px;
+  }
+
+  main { padding: 0 6%; }
+
+  .hero { padding-top: 60px; }
+
+  h1 {
+    font-size: clamp(35px, 8.5vw, 54px);
+    letter-spacing: -.065em;
+  }
+
+  .screenshots {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 65px;
+  }
+
+  .screenshots img { aspect-ratio: 16 / 10; }
+
+  .section { padding: 48px 0 55px; }
+
+  .copy p { font-size: 15px; }
+
+  .question { padding: 20px; }
+
+  .end {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .close-project {
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 390px) {
+  h1 { font-size: 32px; }
+  .meta span { font-size: 10px; }
+}
+
+h1 { white-space: normal; font-size: clamp(44px, 7.7vw, 118px); }
+.close-project { text-decoration:none; }
+.topbar { padding-right:90px; }
+.video { aspect-ratio:16/9; background:#181a1e; border-radius:6px; overflow:hidden; }
+.video iframe { display:block; width:100%; height:100%; border:0; }
+.video-link { margin:10px 0 36px; text-align:right; font-size:12px; }
+.video-link a { color:var(--muted); }
+.networks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:36px; margin:0 0 80px; }
+.networks figure { margin:0; min-width:0; }
+.networks img { display:block; width:100%; aspect-ratio:2.2 / 1; height:auto; object-fit:cover; object-position:center; border-radius:6px; }
+.networks a { display:block; }
+.networks figcaption { margin-top:18px; color:var(--ink); font-size:clamp(30px,3.8vw,56px); font-weight:700; line-height:1.15; letter-spacing:-.045em; }
+.mask-section { display:grid; grid-template-columns:minmax(160px,.75fr) 2fr; gap:35px; border-top:1px solid var(--line); padding:70px 0 80px; }
+.mask-section h2 { font-size:clamp(32px,4.7vw,65px); line-height:1.12; letter-spacing:-.055em; margin:0 0 45px; }
+.mask-section .section-number { padding-top:10px; }
+.mask-main { min-width:0; }
+.mask-copy { min-width:0; font-size:16px; line-height:1.9; }
+.mask-copy p { margin:0; }
+.mask-copy h3 { margin:24px 0 0; font-size:18px; letter-spacing:0; }
+.mask-copy h3:first-child { margin-top:0; }
+.mask-copy ul { list-style:none; padding:0; margin:0; }
+.mask-copy li { padding-left:14px; position:relative; }
+.mask-copy li::before { content:'-'; position:absolute; left:0; }
+@media(max-width:700px) { .hero { padding:55px 0 32px; } .networks { gap:24px; grid-template-columns:1fr; margin-bottom:45px; } .mask-section { grid-template-columns:1fr; gap:22px; padding:36px 0; } .mask-section h2 { margin-bottom:24px; } .topbar { font-size:9px; } .close-project { width:38px; height:38px; top:13px; right:15px; } }
+.project-photo { margin:0 0 80px; }
+.project-photo img { display:block; max-width:min(100%,550px); width:100%; height:auto; margin:auto; border-radius:6px; }
+.video.shorts { max-width:430px; aspect-ratio:9/16; margin:0 auto; }
+.video.shorts iframe { width:100%; height:100%; }
+.mask-copy p + p { margin-top:30px; }
+.mask-copy .reference { font-size:13px; margin-top:30px; overflow-wrap:anywhere; }
+</style></head><body>
+<a class="close-project" href="index.html#portfolio" aria-label="Close project and return to portfolio">×</a>
+<header class="topbar"><span>YUEHANG YUAN</span><span class="accent">04 — The Guided</span></header>
+<main><section class="hero"><div class="kicker">AUGMENTED REALITY / ACCESSIBILITY</div><h1>The Guided</h1><p class="intro">Exploring the relationship between the autonomy of people with disabilities and accessible infrastructure.</p><div class="meta"><span>AUGMENTED REALITY</span><span>ACCESSIBILITY</span><span>INTERACTIVE EXPERIENCE</span></div></section>
+<div class="video shorts"><iframe src="https://www.youtube.com/embed/gMusyb5yt6Y" title="The Guided — AR project video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><p class="video-link"><a href="https://youtube.com/shorts/gMusyb5yt6Y" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></p>
+<figure class="project-photo"><img src="assets/the-guided-experience.jpg" width="1280" height="1707" alt="The Guided AR experience displayed on a smartphone"></figure>
+<section class="mask-section"><div class="section-number">01 / ABSTRACT / ARTIST STATEMENT</div><div class="mask-main"><h2>Abstract / Artist Statement</h2><div class="mask-copy"><p class="">In real life, some people offer assistance to visually impaired individuals without them explicitly requesting help—such as physically pulling them, guiding their direction, or making decisions on their behalf. Although these actions are often well-intentioned, for some visually impaired individuals, such unsolicited help can sometimes feel uncomfortable. Therefore, this project explores whether the public&#x27;s &quot;urge to help&quot; is related to the lack of accessible infrastructure in public spaces.</p><p class="">To address this, the project develops an augmented reality (AR)-based interactive experience. Users scan an image to trigger virtual content and then experience, within the AR environment, the process of actively assisting a blind person while navigating. At the end of the experience, the initial act of helping is replaced by actual navigation aids designed for the visually impaired. The project aims to convey that, compared to temporary interventions by strangers, improving accessible navigation facilities in daily life may be more meaningful. It also hopes to use AR technology to encourage people to reconsider the relationship between helping behaviors, the autonomy of visually impaired individuals, and public accessibility infrastructure.</p></div></div></section><section class="mask-section"><div class="section-number">02 / CONTEXTUAL REVIEW</div><div class="mask-main"><h2>Contextual Review</h2><div class="mask-copy"><p class="">In research on disability, a visually impaired YouTuber noted: &quot;When strangers offer guidance or assistance without permission, it can make them feel uncomfortable&quot; (Niu, Liu and Bian, 2024). This observation became the inspiration for this project. Rather than viewing helping behavior merely as an act of kindness, what truly matters may be establishing more comprehensive, sustainable, and accessible public infrastructure. Therefore, this project aims to use interactive experience to re-expose the social issues hidden behind acts of help, prompting reflection on the relationship between helping behaviors, autonomy, and accessibility in public spaces.</p><p class="">Based on this idea, I developed an augmented reality (AR) interactive experience. Users first encounter a blind character who is lost and unable to find their way within an AR environment. Then, by scanning images in the real world, a female helper is triggered and proactively takes the blind person’s arm to guide them. Users control the helper’s movement via their smartphone screen, simulating the process of actively assisting the blind individual. During interaction, the blind character expresses their desire not to receive help, highlighting how uninvited assistance can cause discomfort. At the end of the experience, the previously manual guidance is replaced by an accessible voice navigation system, emphasizing the importance of public navigation facilities for visually impaired individuals.</p><p class="">In recent years, research on accessible design has increasingly focused on the autonomy and independence of people with disabilities in public spaces. Kapsalis, Jaeger, and Hale (2022) argue that future accessible design in public spaces should prioritize inclusivity and autonomy, enabling people with disabilities to carry out activities independently. Meanwhile, AR technology has gradually been applied to social issues and public space experiences. Silva et al. (2022) suggest that AR can transcend limitations of traditional activism in the physical world, using immersive and layered narratives to bring previously invisible problems and perspectives back into view. However, most current research combining accessibility and AR primarily treats AR as an assistive tool, focusing on how it can improve daily life for people with disabilities, while rarely critically examining how helping behaviors affect the autonomy of visually impaired individuals, or how such behaviors relate to inadequate accessible infrastructure in public spaces. Thus, this project seeks to use AR interaction to reveal the hidden accessibility issues embedded in public spaces and encourage users to reconsider the autonomy of visually impaired people in urban environments.</p><p class="">This project holds significance because it brings to light accessibility issues often overlooked in everyday life, guiding users to pay attention to the autonomy of visually impaired individuals in public spaces. It conveys the message that what truly offers long-term support to people with disabilities may not just be momentary acts of goodwill between individuals, but rather the existence of well-developed and enduring accessible public infrastructure. At the same time, the project also invites deeper reflection on the tension between “care” and “control.”</p><p class="reference">Kapsalis, E., Jaeger, N. and Hale, J., 2024. Disabled-by-design: effects of inaccessible urban public spaces on users of mobility assistive devices–a systematic review. Disability and Rehabilitation: Assistive Technology, 19(3), pp.604–622. Available at: https://www.tandfonline.com/doi/full/10.1080/17483107.2022.2111723 (Accessed: 12 May 2026).</p><p class="reference">Niu, S., Liu, L. and Bian, Y., 2024. Please Understand My Disability: An Analysis of YouTubers&#x27; Discourse on Disability Challenges. Proceedings of the ACM on Human-Computer Interaction, 8(CSCW2), pp.1–25. Available at: https://dl.acm.org/doi/abs/10.1145/3686946 (Accessed: 12 May 2026).</p><p class="reference">Silva, R.M., Principe Cruz, E., Rosner, D.K., Kelly, D., Monroy-Hernández, A. and Liu, F., 2022, April. Understanding AR activism: An interview study with creators of augmented reality experiences for social change. In Proceedings of the 2022 CHI Conference on Human Factors in Computing Systems (pp. 1–15). Available at: https://dl.acm.org/doi/abs/10.1145/3491102.3517605 (Accessed: 12 May 2026).</p></div></div></section><section class="mask-section"><div class="section-number">03 / IMPACT STATEMENT</div><div class="mask-main"><h2>Impact Statement</h2><div class="mask-copy"><h3>Ethical Considerations</h3><p>In this project, users are guided through a psychological process of &quot;active assistance – rejection – rethinking&quot;, which may cause temporary discomfort during the experience. To prevent users from remaining in a negative emotional state, the project includes accessible voice guidance at the end, aiming to transform users&#x27; sense of guilt into reflection on public accessibility issues. Additionally, the project is based on AR technology and requires scanning of the real space, thus involving privacy concerns in public spaces. In the design, the AR system does not perform facial recognition of pedestrians and does not collect, upload, or store any camera data to minimize the impact on users&#x27; and their surrounding environment&#x27;s privacy. Moreover, the work does not portray visually impaired individuals as completely passive, vulnerable, or dependent on others, but rather emphasizes their need for autonomy in public spaces. Therefore, during the design process, overly dramatic or negative representations of the disabled community are avoided to reduce stereotypes about real-life disabled people.</p><h3>Sustainability</h3><p>The project adopts a lightweight AR deployment method based on &quot;Image Triggers&quot;, which does not rely on expensive or fixed large-scale hardware devices. Users can complete the experience simply through ordinary smartphones, reducing the resource consumption caused by physical devices, material production, and transportation. This enables the work to be reused and displayed in different spaces, thereby enhancing the sustainability and dissemination of the project.</p><h3>Accessibility</h3><p>The project uses smartphones to present AR, allowing users to complete the experience with just a regular smartphone, lowering the equipment and usage threshold. Meanwhile, the project mainly relies on simple scanning and screen operations, reducing the impact of complex operations on the user experience. However, the project does not take into account the use by people with disabilities, thus having certain limitations for them. In the future, more voice feedback, tactile feedback, or multi-sensory interaction methods can be added to enhance the accessibility and participation experience for different user groups.</p></div></div></section><footer class="end"><span>YUEHANG YUAN © 2026</span><strong>THE GUIDED</strong><span>END OF PROJECT / 04</span></footer></main></body></html>

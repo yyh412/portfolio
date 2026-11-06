@@ -1,0 +1,1001 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Beat the Clock — A Creative Design Project by Yuehang Yuan">
+<title>Beat the Clock — Yuehang Yuan</title>
+
+<style>
+:root {
+  --bg: #ffffff;
+  --ink: #202b3e;
+  --body: #28364b;
+  --muted: #737985;
+  --line: #e4e6e9;
+  --accent: #dfff00;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--body);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.75;
+}
+
+button { font: inherit; }
+
+.close-project {
+  position: fixed;
+  top: 22px;
+  right: 25px;
+  z-index: 99999;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: #080808;
+  color: var(--accent);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+
+.close-project:hover {
+  transform: rotate(90deg);
+  background: var(--ink);
+}
+
+.topbar {
+  min-height: 64px;
+  padding: 18px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.topbar .accent { color: #637400; }
+
+main {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* PROJECT TITLE */
+.hero { padding: 72px 0 45px; }
+
+.kicker {
+  margin-bottom: 22px;
+  color: #657300;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+h1 {
+  width: 100%;
+  margin: 0;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(44px, 8.2vw, 124px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -.075em;
+  white-space: nowrap;
+}
+
+.intro {
+  max-width: 1000px;
+  margin: 32px 0 0;
+  font-size: clamp(17px, 1.8vw, 22px);
+  line-height: 1.8;
+  color: var(--body);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.meta span {
+  display: inline-block;
+  padding: 6px 17px;
+  border: 1px solid #d5d7db;
+  border-radius: 30px;
+  color: var(--ink);
+  font-size: 11px;
+  letter-spacing: .7px;
+}
+
+/* THREE GAME IMAGES */
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 35px 0 100px;
+}
+
+.screenshots figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.screenshots img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #f1f1f1;
+}
+
+.screenshots figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* CONTENT SECTIONS */
+.section {
+  padding: 70px 0 80px;
+  border-top: 1px solid var(--line);
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: minmax(200px, .75fr) 2fr;
+  gap: 35px;
+  margin-bottom: 40px;
+  align-items: start;
+}
+
+.section-number {
+  padding-top: 10px;
+  color: #637300;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(32px, 4.7vw, 65px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -.055em;
+}
+
+.copy {
+  max-width: 1000px;
+  margin-left: auto;
+}
+
+.copy p {
+  margin: 0 0 27px;
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.copy p:last-child { margin-bottom: 0; }
+
+.copy strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+h3 {
+  margin: 42px 0 15px;
+  color: var(--ink);
+  font-size: clamp(21px, 2.5vw, 30px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -.035em;
+}
+
+.copy h3:first-child { margin-top: 0; }
+
+.highlight {
+  background: var(--accent);
+  padding: 1px 4px;
+}
+
+/* RESEARCH QUESTIONS */
+.question {
+  margin: 0 0 16px;
+  padding: 25px 28px;
+  border-left: 3px solid var(--accent);
+  background: #f7f8f4;
+  color: var(--ink);
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.75;
+}
+
+.question:last-child { margin-bottom: 0; }
+
+/* STORYBOARD */
+.storyboard { margin-top: 45px; }
+
+.storyboard figure { margin: 0; }
+
+.storyboard img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #f5f5f5;
+}
+
+.storyboard figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* REFERENCES */
+.reference-list {
+  margin: 0;
+  padding-left: 25px;
+}
+
+.reference-list li {
+  padding-left: 8px;
+  margin-bottom: 22px;
+  color: var(--body);
+  font-size: 14px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.reference-list li:last-child { margin-bottom: 0; }
+
+.reference-list a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: #aab0b9;
+  text-underline-offset: 3px;
+}
+
+.reference-list a:hover {
+  background: var(--accent);
+  text-decoration-color: var(--ink);
+}
+
+/* FOOTER */
+.end {
+  padding: 35px 0 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.end strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .section-heading {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .copy { margin-left: 0; }
+
+  h1 { font-size: clamp(42px, 8vw, 72px); }
+}
+
+@media (max-width: 650px) {
+  .topbar {
+    padding-right: 75px;
+    font-size: 9px;
+  }
+
+  main { padding: 0 6%; }
+
+  .hero { padding-top: 60px; }
+
+  h1 {
+    font-size: clamp(35px, 8.5vw, 54px);
+    letter-spacing: -.065em;
+  }
+
+  .screenshots {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 65px;
+  }
+
+  .screenshots img { aspect-ratio: 16 / 10; }
+
+  .section { padding: 48px 0 55px; }
+
+  .copy p { font-size: 15px; }
+
+  .question { padding: 20px; }
+
+  .end {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .close-project {
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 390px) {
+  h1 { font-size: 32px; }
+  .meta span { font-size: 10px; }
+}
+.project-video { margin: 12px 0 48px; }
+.project-video iframe { display:block; width:100%; aspect-ratio:16 / 9; border:0; border-radius:6px; background:#111; }
+</style>
+</head>
+
+<body>
+
+<!-- CLOSE BUTTON -->
+<button class="close-project"
+        type="button"
+        aria-label="Close project"
+        title="Back to portfolio"
+        onclick="closeProject()">×</button>
+
+<header class="topbar">
+  <span>YUEHANG YUAN</span>
+  <span class="accent">01 — Beat the clock</span>
+</header>
+
+<main>
+
+  <!-- PROJECT TITLE -->
+  <section class="hero">
+    <div class="kicker">CREATIVE TECHNOLOGIES · VR</div>
+
+    <h1>Beat the Clock.</h1>
+
+    <p class="intro">
+      An interactive project exploring visual tunnelling under time
+      pressure and the relationship between visual attention and
+      prosocial behaviour.
+    </p>
+
+    <div class="meta">
+      <span>CREATIVE TECHNOLOGIES</span>
+      <span>VIRTUAL REALITY</span>
+      <span>VISUAL TUNNELLING</span>
+      <span>INTERACTION DESIGN</span>
+    </div>
+  </section>
+
+  <!-- PROJECT VIDEO -->
+  <section class="project-video" aria-label="Project video">
+    <iframe src="https://www.youtube.com/embed/ccWNQVUPMSo"
+            title="Beat the Clock project video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </section>
+
+  <!-- THREE GAME SCREENSHOTS -->
+  <section class="screenshots" aria-label="Project screenshots">
+
+    <!-- IMAGE 01: NO CAPTION -->
+    <figure>
+      <img src="assets/beat-the-clock-01.png"
+           alt="Virtual reality scene showing a wheelchair user and obstacles near a staircase">
+    </figure>
+
+    <!-- IMAGE 02: NO CAPTION -->
+    <figure>
+      <img src="assets/beat-the-clock-02.png"
+           alt="A person in a wheelchair surrounded by boxes blocking the route">
+    </figure>
+
+    <!-- IMAGE 03: NO CAPTION -->
+    <figure>
+      <img src="assets/beat-the-clock-03.png"
+           alt="The virtual environment changes colour as the player notices a person">
+    </figure>
+
+  </section>
+
+  <!-- 01 ARTIST STATEMENT -->
+  <section class="section" id="artist-statement">
+    <div class="section-heading">
+      <div class="section-number">01 / ARTIST STATEMENT</div>
+      <h2>Artist Statement about the Creative Design Project</h2>
+    </div>
+
+    <div class="copy">
+      <p>
+        “Beat the Clock” is an interactive project based on virtual
+        reality and eye-tracking technology, using prosocial behavior
+        as a research context to focus on a key prerequisite for helping
+        behavior—Noticing the Event. Under time pressure, people may
+        become overly focused on their immediate goals, leading to
+        visual tunneling, which narrows attentional scope and causes
+        them to overlook events occurring around them. This project
+        aims to explore how interaction design can help users recognize
+        and overcome visual tunneling under time constraints, and
+        further investigate the relationship between such attentional
+        shifts and prosocial behavior.
+      </p>
+
+      <p>
+        In the experience, players must reach an important interview
+        within a limited timeframe, encountering along the way multiple
+        situations where they might need to offer assistance. The
+        environment initially appears in black, white, and gray, with
+        eye-tracking technology monitoring the player’s gaze in real
+        time. When a player fixates on a character in need of help, that
+        character gradually regains its original color, transforming
+        the player’s attention into visible visual feedback. If the
+        player then chooses to help and completes the interaction, the
+        surrounding environment also begins to regain color, and the
+        character provides some form of benefit to the player. Through
+        this “gaze–color feedback–help–environmental change–social
+        feedback” loop, previously imperceptible attentional shifts
+        become tangible, encouraging players to actively observe beyond
+        their immediate goals.
+      </p>
+
+      <p>
+        The main contribution of this project lies in exploring an
+        intervention method against visual tunneling through interaction
+        design. Eye-tracking and color changes serve as a real-time
+        feedback mechanism, enabling players to recognize when they
+        have noticed events they might otherwise have missed. It further
+        investigates whether such feedback influences subsequent
+        attention and helps behaviors. Thus, the project offers a VR
+        research platform for examining the interplay among time
+        pressure, visual tunneling, and prosocial behavior, providing
+        design insights for future studies on how immersive interactions
+        can help users become aware of and overcome attention limitations.
+      </p>
+    </div>
+  </section>
+
+  <!-- STORYBOARD -->
+  <section class="section" id="storyboard">
+    <div class="section-heading">
+      <div class="section-number">PROJECT VISUALS</div>
+      <h2>Storyboard</h2>
+    </div>
+
+    <div class="storyboard">
+      <figure>
+        <img src="assets/beat-the-clock-storyboard.png"
+             alt="Storyboard illustrating the interview journey, noticing a person in need, visual feedback, and helping">
+        <figcaption>
+          Project storyboard / The relationship between time pressure,
+          noticing an event and prosocial behaviour.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 02 CONTEXT, RESEARCH QUESTION AND GAP -->
+  <section class="section" id="research">
+    <div class="section-heading">
+      <div class="section-number">02 / RESEARCH CONTEXT</div>
+      <h2>Context, Research Question and Research/Practice Gap</h2>
+    </div>
+
+    <div class="copy">
+      <h3>Research Background</h3>
+
+      <p>
+        In modern society, the pace of life continues to accelerate.
+        In his review of Rosa’s Social Acceleration: A New Theory of
+        Modernity, Ritzer (2017) argues that modern society can be
+        understood through three dimensions: technological acceleration,
+        the acceleration of social change, and the acceleration of the
+        pace of life. Among these, the acceleration of the pace of life
+        means that individuals constantly try to complete more
+        activities within a limited amount of time, making time scarcity
+        and time pressure increasingly common experiences in modern life.
+        In this social context, people may focus more of their attention
+        on the tasks they need to complete, thereby paying less attention
+        to their surroundings and the needs of others.
+      </p>
+
+      <p>
+        Prosocial behavior is crucial to maintaining social cooperation
+        and public well-being. However, in real-life situations, people
+        often fail to promptly recognize others’ requests for help, or
+        even when they notice such signals, may not take timely action
+        due to factors such as the diffusion of responsibility. In 1964,
+        the murder of Kitty Genovese drew widespread public and academic
+        attention to helping behavior (Darley and Latané, 1968).
+        According to media reports at the time, during the violent
+        attack on Genovese, which lasted for several tens of minutes,
+        several nearby residents reportedly heard or witnessed parts
+        of the incident but failed to provide timely help. The case was
+        widely regarded as an important turning point in the study of
+        prosocial behavior, leading to extensive discussion in social
+        psychology about why bystanders failed to intervene. It also
+        encouraged researchers to systematically investigate the
+        factors that influence helping behavior and contributed to
+        decades of research on prosocial behavior.
+      </p>
+
+      <h3>Prosocial Behaviour and Bystander Intervention Model</h3>
+
+      <p>
+        Prosocial behavior is the label for a broad category of actions
+        that are “defined by society as generally beneficial to other
+        people and to the ongoing political system.” It includes
+        helping, altruism, and cooperation. Among these, helping behavior
+        specifically refers to actions that provide some form of benefit
+        to others or improve their well-being. Social psychology has
+        proposed several theoretical frameworks to explain prosocial
+        behavior. Social Exchange Theory views help as a rational
+        consideration of costs and potential rewards; Social Norms
+        Theory emphasizes the influence of norms of reciprocity and
+        social responsibility on individual behavior; while Evolutionary
+        Psychology explains the evolutionary advantages of cooperation
+        through Kin Selection and Reciprocal Altruism (Dovidio et al.,
+        2006). Therefore, prosocial behavior is influenced by a
+        combination of factors, including individual motivations,
+        social norms, and specific situations.
+      </p>
+
+      <p>
+        To explain how helping behavior occurs in specific situations,
+        Latané and Darley (1970) proposed the classic Bystander
+        Intervention Model. The model suggests that helping behavior
+        is the result of a series of sequential decisions. An individual
+        must go through five stages in order: Notice the Event,
+        Interpret the Event as Requiring Help, Assume Personal
+        Responsibility, Choose a Way to Help, and Implement the
+        Decision. If the process is interrupted at any of these stages,
+        helping behavior may not occur.
+      </p>
+
+      <p>
+        Dovidio et al. (2006) further summarized that different stages
+        of the helping decision-making process are influenced by
+        different situational factors. In the first stage, the salience
+        of the event and stimulus overload determine whether an
+        individual first notices the request for help. The second and
+        third stages are more likely to be influenced by the ambiguity
+        of information and the number of bystanders, which may lead to
+        Pluralistic Ignorance and Diffusion of Responsibility. The fourth
+        and fifth stages are more strongly influenced by the individual’s
+        knowledge and skills related to helping. This model suggests
+        that failing to help does not necessarily mean that an individual
+        lacks empathy or prosocial motivation. The helping process may
+        already have been interrupted at an earlier cognitive stage.
+        For example, an individual may simply fail to notice the event
+        or may not recognize it as a situation that requires help.
+      </p>
+
+      <p>
+        Taken together, this theoretical framework suggests that
+        noticing the event is the starting point of the entire helping
+        process. Only when information about a request for help first
+        enters an individual’s range of attention can the subsequent
+        processes of interpreting the situation, assuming responsibility,
+        choosing a way to help, and carrying out the helping action take
+        place.
+      </p>
+
+      <h3>Time Pressure and Visual Tunnelling</h3>
+
+      <p>
+        Time pressure is a significant situational factor influencing
+        individuals’ attention and helping behavior. When individuals
+        must complete a specific goal within a limited timeframe, time
+        itself becomes a scarce resource, leading them to focus more
+        intensely on the current task and pay less attention to other
+        information. In prosocial behavior research, Darley and Batson’s
+        (1973) classic Good Samaritan Experiment involved seminary
+        students traveling to another building to deliver a speech,
+        with varying levels of time pressure manipulated. Along the way,
+        participants encountered a stranger in need of help. The
+        results showed that under high time pressure, participants
+        were significantly less likely to assist the stranger compared
+        to those under low time pressure.
+      </p>
+
+      <p>
+        From the perspective of the Bystander Intervention Model, the
+        reduction in helping behavior under time pressure may occur
+        through two different but related pathways. In the first pathway,
+        an individual has already noticed the person in need but decides
+        not to help after evaluating the costs. In the second pathway,
+        the individual’s attentional resources are mainly occupied by
+        the primary task, causing them to pay insufficient attention to
+        the request for help. This project mainly focuses on the second
+        pathway, examining how time pressure affects Notice the Event
+        before the helping decision takes place.
+      </p>
+
+      <p>
+        This heightened focus on primary tasks and reduced attention to
+        surrounding information can be explained from the perspective
+        of Visual Tunneling. Visual Tunneling primarily manifests as a
+        narrowing of effective visual attention, reducing individuals’
+        ability to process peripheral information. Williams (1988) found
+        that when high central cognitive load, focused attention
+        strategies, and time pressure are present, individuals’
+        recognition of peripheral visual information is significantly
+        impaired, leading to tunnel vision.
+      </p>
+
+      <p>
+        Cognitive psychology research (Teoh et al., 2020) further links
+        time pressure with attentional priorities. Studies show that the
+        effect of time pressure on altruistic choices depends on
+        individuals’ attentional priorities—specifically, forcing
+        attention toward others’ needs under time pressure can promote
+        altruistic decisions. Thus, attention processes play a crucial
+        role in time-pressured situations. When individuals break free
+        from excessive focus on their current goal and attempt to extend
+        their attention beyond it, events previously overlooked due to
+        Visual Tunneling may then enter their awareness, creating
+        conditions for subsequent judgments and prosocial behaviors.
+      </p>
+
+      <h3>State of the Art</h3>
+
+      <p>
+        The development of Virtual Reality (VR) technology has opened
+        new possibilities for studying prosocial behavior and
+        attentional processes. VR enables the creation of social
+        scenarios involving virtual characters within controlled
+        three-dimensional environments, allowing researchers to observe
+        players’ social interactions and behavioral responses. For
+        instance, Zojaji et al. (2024) used VR to investigate
+        participants’ distance, movement paths, and polite behaviors
+        when approaching groups composed of humans, robots, and virtual
+        agents. Additionally, VR has been employed to explore how users
+        perceive and interpret visual information in three-dimensional
+        spaces. Yalla et al. (2025) studied users’ perception of shelf
+        displays in a VR retail environment, analyzing how individuals
+        observe and understand product arrangements through simulated
+        shopping experiences. These examples demonstrate that VR can
+        immerse users in richly visualized 3D environments, enabling
+        detailed analysis of how users perceive environmental cues.
+        Such studies indicate that VR offers an ideal technological
+        platform for investigating Visual Tunnelling and prosocial
+        behavior by simultaneously providing controllable social
+        contexts and visual stimuli.
+      </p>
+
+      <p>
+        Building on this foundation, research on how visual presentation
+        influences attention allocation has also been applied in VR.
+        Zhang et al. (2026) proposed the Attention Redistribution
+        Principle, which suggests that reducing the brightness (dimming)
+        or blurring irrelevant visual elements can minimize competition
+        for attentional resources from distracting information, thereby
+        improving target detection speed and task performance. Other
+        studies have explored using visual interventions to alleviate
+        Attentional Tunnelling. Saint-Lot et al. (2020) designed a
+        “Red Alert” visual intervention in air traffic control tasks,
+        employing brief flashes of orange-red across the screen to
+        interrupt participants’ overly focused attention states. These
+        findings suggest that visual presentation can serve as an
+        interactive design tool for studying attentional allocation
+        in users.
+      </p>
+
+      <p>
+        Compared to studying attention allocation through changes in
+        visual presentation, eye tracking provides more detailed
+        physiological indicators for identifying shifts in attention.
+        For example, in Reimer’s (2009) real-road driving experiment,
+        as cognitive task load increased, eye-tracking data revealed
+        that drivers’ gaze distribution became increasingly focused,
+        exhibiting characteristics consistent with visual tunneling
+        under the highest task difficulty. Notably, changes in visual
+        attention could be observed even before any noticeable decline
+        in vehicle control, indicating that eye-tracking data can
+        detect attentional shifts prior to external behavioral outcomes.
+      </p>
+
+      <p>
+        Meanwhile, positive feedback within games can reshape players’
+        subsequent behaviors. Yin et al. (2022), in their study on game
+        reinforcement mechanisms, found that positive feedback
+        (rewards) during tasks significantly enhanced players’
+        attentional bias toward prosocial cues, enabling them to more
+        sensitively detect help-seeking signals in interactions and
+        directly increasing their helping and altruistic behaviors
+        in later stages.
+      </p>
+
+      <h3>Research Gap</h3>
+
+      <p>
+        Although existing research has shown that time pressure affects
+        prosocial behavior, there remains insufficient exploration into
+        how narrowed attention under time pressure influences
+        individuals’ awareness of social help-seeking events, and how
+        such attentional changes further impact prosocial behavior.
+        Current interventions targeting visual tunneling—such as visual
+        alerts, reduced visual complexity, and spatial audio—are
+        primarily designed to mitigate the issue in high-risk
+        environments like driving and aerospace operations. These
+        approaches not only risk causing secondary cognitive overload
+        but also undermine users’ autonomy in decision-making. In
+        contrast, there is still significant room for further
+        investigation on how eye-tracking can be used to detect players’
+        attentional states within immersive VR environments involving
+        social interaction, without disrupting primary tasks. By
+        providing contextually relevant visual feedback to encourage
+        players to actively broaden their visual scope, researchers
+        could then examine whether this attentional shift effectively
+        translates into enhanced awareness of surrounding social events
+        and increased prosocial behavior.
+      </p>
+
+      <h3>Research Questions</h3>
+
+      <div class="question">
+        Under time pressure, how can VR help users become aware of the
+        narrowing of their attentional range and encourage them to try
+        to overcome this attentional limitation?
+      </div>
+
+      <div class="question">
+        After users notice social events that they might otherwise have
+        overlooked, does this change in attention influence their
+        subsequent choices to engage in prosocial behavior?
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section class="section" id="references">
+    <div class="section-heading">
+      <div class="section-number">REFERENCES</div>
+      <h2>References</h2>
+    </div>
+
+    <div class="copy">
+      <ol class="reference-list">
+        <li>
+          Darley, J.M. and Latane, B. (1968) “Bystander intervention
+          in emergencies: Diffusion of responsibility.”,
+          <em>Journal of Personality and Social Psychology</em>,
+          8(4, Pt.1), pp. 377–383. Available at:
+          <a href="https://doi.org/10.1037/h0025589"
+             target="_blank" rel="noopener noreferrer">
+            https://doi.org/10.1037/h0025589
+          </a>
+          (Accessed: 21 July 2026).
+        </li>
+
+        <li>
+          Darley, J.M. and Batson, C.D. (1973) “‘From Jerusalem to
+          Jericho’: A study of situational and dispositional variables
+          in helping behavior.”,
+          <em>Journal of Personality and Social Psychology</em>,
+          27(1), pp. 100–108. Available at:
+          <a href="https://doi.org/10.1037/h0034449"
+             target="_blank" rel="noopener noreferrer">
+            https://doi.org/10.1037/h0034449
+          </a>
+          (Accessed: 23 July 2026).
+        </li>
+
+        <li>
+          Dovidio, J.F., Piliavin, J.A., Schroeder, D.A. and Penner,
+          L.A. (2017). <em>The Social Psychology of Prosocial Behavior.</em>
+          Psychology Press. Available at:
+          <a href="https://www.taylorfrancis.com/books/mono/10.4324/9781315085241/social-psychology-prosocial-behavior-john-dovidio-louis-penner-jane-allyn-piliavin-david-schroeder"
+             target="_blank" rel="noopener noreferrer">
+            Taylor &amp; Francis
+          </a>
+          (Accessed: 22 July 2026).
+        </li>
+
+        <li>
+          Kaufman, G. and Flanagan, M. (2015). A psychologically
+          “embedded” approach to designing games for prosocial causes.
+          <em>Cyberpsychology: Journal of Psychosocial Research on
+          Cyberspace</em>, 9(3). Available at:
+          <a href="https://cyberpsychology.eu/article/view/4343"
+             target="_blank" rel="noopener noreferrer">
+            https://cyberpsychology.eu/article/view/4343
+          </a>
+          (Accessed: 23 July 2026).
+        </li>
+
+        <li>
+          Latané, B. and Darley, J.M. (1970).
+          <em>The Unresponsive Bystander: Why Doesn’t He Help?</em>
+          New York: Appleton-Century-Crofts (Accessed: 23 July 2026).
+        </li>
+
+        <li>
+          Reimer, B. (2009). Impact of cognitive task complexity on
+          drivers’ visual tunneling.
+          <em>Transportation Research Record</em>, 2138(1), pp. 13–19.
+          Available at:
+          <a href="https://journals.sagepub.com/doi/abs/10.3141/2138-03"
+             target="_blank" rel="noopener noreferrer">
+            https://journals.sagepub.com/doi/abs/10.3141/2138-03
+          </a>
+          (Accessed: 12 September 2026).
+        </li>
+
+        <li>
+          Ritzer, G. (2017). “Social Acceleration: A New Theory of
+          Modernity.” <em>Contemporary Sociology: A Journal of Reviews</em>,
+          46(4), pp. 470–471. Available at:
+          <a href="https://doi.org/10.1177/0094306117714500hh"
+             target="_blank" rel="noopener noreferrer">
+            https://doi.org/10.1177/0094306117714500hh
+          </a>
+          (Accessed: 21 July 2026).
+        </li>
+
+        <li>
+          Saint-Lot, J., Imbert, J.P. and Dehais, F. (2020, April).
+          Red alert: A cognitive countermeasure to mitigate attentional
+          tunneling. In <em>Proceedings of the 2020 CHI Conference on
+          Human Factors in Computing Systems</em>, pp. 1–6. Available at:
+          <a href="https://dl.acm.org/doi/abs/10.1145/3313831.3376709"
+             target="_blank" rel="noopener noreferrer">
+            https://dl.acm.org/doi/abs/10.1145/3313831.3376709
+          </a>
+          (Accessed: 12 September 2026).
+        </li>
+
+        <li>
+          Teoh, Y.Y., Yao, Z., Cunningham, W.A. and Hutcherson, C.A.
+          (2020). Attentional priorities drive effects of time pressure
+          on altruistic choice. <em>Nature Communications</em>, 11(1),
+          p. 3534. Available at:
+          <a href="https://www.nature.com/articles/s41467-020-17326-x"
+             target="_blank" rel="noopener noreferrer">
+            https://www.nature.com/articles/s41467-020-17326-x
+          </a>
+          (Accessed: 23 July 2026).
+        </li>
+
+        <li>
+          Williams, L.J. (1988). Tunnel vision or general interference?
+          Cognitive load and attentional bias are both important.
+          <em>The American Journal of Psychology</em>, pp. 171–191.
+          Available at:
+          <a href="https://www.jstor.org/stable/1422833"
+             target="_blank" rel="noopener noreferrer">
+            https://www.jstor.org/stable/1422833
+          </a>
+          (Accessed: 12 September 2026).
+        </li>
+
+        <li>
+          Yalla, J.P., Ding, S., Bahng, M., Tian, X., Li, H. and Chen, Y.
+          (2025, November). Understanding Retail Planograms through
+          Virtual Reality-based Shopper Shelf Perception Analytics.
+          In <em>Proceedings of the 2025 31st ACM Symposium on Virtual
+          Reality Software and Technology</em>, pp. 1–2. Available at:
+          <a href="https://dl.acm.org/doi/full/10.1145/3756884.3768410"
+             target="_blank" rel="noopener noreferrer">
+            https://dl.acm.org/doi/full/10.1145/3756884.3768410
+          </a>
+          (Accessed: 12 September 2026).
+        </li>
+
+        <li>
+          Yin, M., Qiu, B., He, X., Tao, Z., Zhuang, C., Xie, Q., Tian, Y.
+          and Zhang, W. (2022). Effects of reward and punishment in
+          prosocial video games on attentional bias and prosocial
+          behaviors. <em>Computers in Human Behavior</em>, 137, p. 107441.
+          Available at:
+          <a href="https://www.sciencedirect.com/science/article/abs/pii/S0747563222002631"
+             target="_blank" rel="noopener noreferrer">
+            https://www.sciencedirect.com/science/article/abs/pii/S0747563222002631
+          </a>
+          (Accessed: 12 September 2026).
+        </li>
+
+        <li>
+          Zhang, C., Cao, R., Cunningham, A. and Walsh, J.A. (2026, April).
+          Less is more! Visual suppression for bottom-up and top-down
+          attention in dynamic environments. In
+          <em>Proceedings of the 2026 CHI Conference on Human Factors
+          in Computing Systems</em>, pp. 1–19. Available at:
+          <a href="https://dl.acm.org/doi/full/10.1145/3772318.3790982"
+             target="_blank" rel="noopener noreferrer">
+            https://dl.acm.org/doi/full/10.1145/3772318.3790982
+          </a>
+          (Accessed: 23 July 2026).
+        </li>
+
+        <li>
+          Zojaji, S., Matviienko, A., Leite, I. and Peters, C. (2024, May).
+          Join me here if you will: Investigating embodiment and
+          politeness behaviors when joining small groups of humans,
+          robots, and virtual characters. In
+          <em>Proceedings of the 2024 CHI Conference on Human Factors
+          in Computing Systems</em>, pp. 1–16. Available at:
+          <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642905"
+             target="_blank" rel="noopener noreferrer">
+            https://dl.acm.org/doi/full/10.1145/3613904.3642905
+          </a>
+          (Accessed: 12 September 2026).
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <footer class="end">
+    <span>YUEHANG YUAN © 2026</span>
+    <strong>BEAT THE CLOCK</strong>
+    <span>END OF PROJECT / 01</span>
+  </footer>
+
+</main>
+
+<script>
+function closeProject() {
+  try {
+    if (window.parent && window.parent !== window) {
+      const parentWindow = window.parent;
+      const dialog = parentWindow.document.getElementById("projectDialog");
+
+      if (dialog && dialog.open) {
+        dialog.close();
+        return;
+      }
+
+      const detail = parentWindow.document.getElementById("dialogContent");
+
+      if (detail) {
+        detail.innerHTML = "";
+        parentWindow.location.hash = "portfolio";
+        return;
+      }
+    }
+  } catch (error) {
+    // Fall back to the portfolio page if the parent cannot be accessed.
+  }
+
+  window.location.href = "index.html#portfolio";
+}
+</script>
+
+</body>
+</html>
